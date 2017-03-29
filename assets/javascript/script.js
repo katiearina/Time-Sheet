@@ -4,6 +4,7 @@
 	var role = $("#role").val().trim();
 	var startDate = $("#start-date").val().trim();
 	var monthlyRate = $("#monthly-rate").val().trim();
+	var UTCDate = "";
 
 	// Initialize Firebase
 	var config = {
@@ -19,13 +20,29 @@
 
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!
-function createRow {
+function createRow() {
+
+}
+
+function getBill(rate, months) {
+
+}
+
+function getMonthsWorked(UTCDate) {
+
+}
+
+function convertDatetoUTC(startDate) {
+
+}
+
+function convertDatefromUTC(UTCDate) {
 
 }
 
 //---------------------------------------------------------------------------
 // DO STUFF!
-$("#submit-button").on("click", function(event){
-	event.preventDefault();
-	createRow();
+$("#submit-button").on("click", function(event) {
+    event.preventDefault();
+    createRow();
 });
