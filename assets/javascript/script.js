@@ -13,8 +13,9 @@
 		storageBucket: "timesheet-95d18.appspot.com",
 		messagingSenderId: "392702487619"
 	};
-
 	firebase.initializeApp(config);
+
+	var database = firebase.database();
 
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!
