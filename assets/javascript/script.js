@@ -1,10 +1,12 @@
 //---------------------------------------------------------------------------
 // VARIABLE DECLARATIONS!
-	var name = $("#name").val().trim();
-	var role = $("#role").val().trim();
-	var startDate = $("#start-date").val().trim();
-	var monthlyRate = $("#monthly-rate").val().trim();
+	var name = "";
+	var role = "";
+	var startDate = "";
+	var monthlyRate = "";
 	var UTCDate = "";
+
+
 
 	// Initialize Firebase
 	var config = {
@@ -20,9 +22,6 @@
 
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!
-function createRow() {
-	
-}
 
 function getBill(rate, months) {
 
@@ -44,8 +43,12 @@ function convertDatefromUTC(UTCDate) {
 // DO STUFF!
 $("#submit-button").on("click", function(event) {
     event.preventDefault();
-    createRow();
-
+    name = $("#name").val().trim();
+	role = $("#role").val().trim();
+	startDate = $("#start-date").val().trim();
+	monthlyRate = $("#monthly-rate").val().trim();
+	UTCDate = "";
+console.log(name);
 	database.ref().push({
 		name: name,
 		role: role,
@@ -55,3 +58,9 @@ $("#submit-button").on("click", function(event) {
     });
 
 });
+
+database.ref().on("child_added", function(childSnapshot){
+
+	console.log(childSnapshot.val());
+	$("#currentEmployees").append("<tr><td>" + childSnapshot.val().name + "</td><td>" + childSnapshot.val().role + "</td><td>" + childSnapshot.val().startDate + "</td><td>" + childSnapshot.val().monthlyRate + "</td><td>" + childSnapshot.val().UTCDate + "</td>")
+}) //end of child added listener
