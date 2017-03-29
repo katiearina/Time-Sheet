@@ -21,7 +21,7 @@
 //---------------------------------------------------------------------------
 // FUNCTION DECLARATIONS!
 function createRow() {
-
+	
 }
 
 function getBill(rate, months) {
@@ -45,4 +45,13 @@ function convertDatefromUTC(UTCDate) {
 $("#submit-button").on("click", function(event) {
     event.preventDefault();
     createRow();
+
+	database.ref().push({
+		name: name,
+		role: role,
+		startDate: startDate,
+		monthlyRate: monthlyRate,
+		UTCDate: UTCDate
+    });
+
 });
